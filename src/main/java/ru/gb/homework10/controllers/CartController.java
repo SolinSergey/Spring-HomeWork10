@@ -17,24 +17,24 @@ public class CartController {
     private final Cart cart;
 
     @GetMapping()
-    public List<CartPositionDto> showAllPosition(){
+    public List<CartPositionDto> showAllPosition() {
         return cart.getAllPosition();
     }
 
     @PostMapping()
-    public ResponseEntity<?> addPositionToCart(@RequestBody ProductDto productDto){
+    public ResponseEntity<?> addPositionToCart(@RequestBody ProductDto productDto) {
         cart.addPositionToCart(productDto);
         return ResponseEntity.ok().body(HttpStatus.OK);
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<?> deletePositionFromCartByIdProduct(@PathVariable Long id){
+    public ResponseEntity<?> deletePositionFromCartByIdProduct(@PathVariable Long id) {
         cart.deletePositionFromCartByIdProduct(id);
         return ResponseEntity.ok().body(HttpStatus.OK);
     }
 
     @DeleteMapping("/clear")
-    public ResponseEntity<?> clearCart(){
+    public ResponseEntity<?> clearCart() {
         cart.clearCart();
         return ResponseEntity.ok().body(HttpStatus.OK);
     }
